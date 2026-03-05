@@ -10,33 +10,27 @@ namespace id_de_estudiantes
     {
         static void Main(string[] args)
         {
-            Dictionary<string, string> usuarios = new Dictionary<string, string>();
-            string contraseña;
-            string usuario;
-           
-            Console.Write("CUANTOS USUARIOS DESEA INGRESAR : ");
-            int num = int.Parse(Console.ReadLine());
-            Console.WriteLine("\n++++++++++++++ INGRESAR DATOS DE USUARIO +++++++++++");
-            for (int i = 0; i < num; i++)
+            Dictionary<int, string> estudiantes = new Dictionary<int, string>();
+            int id;
+            string nombre;
+            Console.WriteLine("++++++++++++++ INGRESAR DATOS DE 3 ESTUDIANTES +++++++++++");
+            for (int i = 0; i < 3; i++)
             {
-                Console.Write($"\nINGRESE USUARIO {i + 1}: ");
-                usuario = Console.ReadLine();
-                Console.Write($"INGRESE LA CONTRASEÑA DEL USUARIO {i + 1}: ");
-                contraseña = Console.ReadLine();
-
-                usuarios.Add(usuario, contraseña);
+                Console.Write($"\nINGRESE LA ID DEL ESTUDIANTE {i + 1}: ");
+                id = int.Parse(Console.ReadLine());
+                Console.Write($"INGRESE EL NOMBRE DEL ESTUDIANTE {i + 1}: ");
+                nombre = Console.ReadLine();
+                estudiantes.Add(id, nombre);
             }
             Console.Clear();
-            Console.WriteLine("\n++++++++++++++ DESPLEGAR CONTRASEÑA +++++++++++");
-            Console.Write("INGRESE EL USUARIO: ");
-            usuario = Console.ReadLine();
-            foreach (var item in usuarios)
-            {
-                if (item.Key == usuario)
-                {
-                    Console.WriteLine("\nCONTRASEÑA: " + item.Value);
-                }
+            Console.WriteLine("\n++++++++++++++ BUSCAR  ESTUDIANTES A ELIMINAR +++++++++++");
+            Console.Write("INGRESE LA ID DEL ESTUDIANTE: ");
+            id = int.Parse(Console.ReadLine());
 
+            if (estudiantes.ContainsKey(id))
+            {
+                estudiantes.Remove(id);
+                Console.WriteLine("\nESTUDIANTE ELIMINADO CORRECTAMENTE.");
             }
         }
     }
