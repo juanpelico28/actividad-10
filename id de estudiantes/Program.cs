@@ -10,24 +10,35 @@ namespace id_de_estudiantes
     {
         static void Main(string[] args)
         {
-            Dictionary<int, string> productos = new Dictionary<int, string>();
-            int codigo;
+            Dictionary<string, double> estudiantes = new Dictionary<string, double>();
+            double notas;
             string nombre;
-            Console.WriteLine("++++++++++++++ INGRESAR 3 PRODUCTOS +++++++++++");
-            for (int i = 0; i < 3; i++)
+            Console.WriteLine("++++++++++++++ INGRESAR DATOS DE ESTUDIANTES +++++++++++");
+            Console.Write("\nCUANTOS ESTUDIANTES DESEA INGRESAR: ");
+            int num = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < num; i++)
             {
-                Console.Write($"\nINGRESE EL CODIGO DEL PRODUCTO {i + 1}: ");
-                codigo = int.Parse(Console.ReadLine());
-                Console.Write($"INGRESE EL NOMBRE DEL PRODUCTO {i + 1}: ");
+                Console.Write($"\nINGRESE LA NOMBRE DEL ESTUDIANTE {i + 1}: ");
                 nombre = Console.ReadLine();
-                productos.Add(codigo, nombre);
+                Console.Write($"INGRESE LA NOTA DEL ESTUDIANTE {i + 1}: ");
+                notas = double.Parse(Console.ReadLine());
+
+                estudiantes.Add(nombre, notas);
             }
             Console.Clear();
-            Console.WriteLine("\n++++++++++++++ PRODUCTOS INGRESADOS +++++++++++");
-            Console.WriteLine("");
-            foreach (var item in productos)
+            Console.WriteLine("\n++++++++++++++ BUSCAR  ESTUDIANTES +++++++++++");
+            Console.Write("INGRESE EL NOMBRE DEL ESTUDIANTE: ");
+            nombre = Console.ReadLine();
+
+            Console.WriteLine("\n***********DATOS DE ESTUDIANTES*********");
+            foreach (var item in estudiantes)
             {
-                Console.WriteLine("CODIGO: " + item.Key + ", NOMBRE: " + item.Value);
+                if (item.Key == nombre)
+                {
+                    Console.WriteLine("ID: " + item.Key + ", NOTA: " + item.Value);
+                }
+
             }
         }
     }
