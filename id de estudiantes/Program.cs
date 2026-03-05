@@ -10,34 +10,24 @@ namespace id_de_estudiantes
     {
         static void Main(string[] args)
         {
-            Dictionary< int,string > estudiantes = new Dictionary<int,string>();
-            int id;
+            Dictionary<int, string> productos = new Dictionary<int, string>();
+            int codigo;
             string nombre;
-            Console.WriteLine("++++++++++++++ INGRESAR DATOS DE 3 ESTUDIANTES +++++++++++");
+            Console.WriteLine("++++++++++++++ INGRESAR 3 PRODUCTOS +++++++++++");
             for (int i = 0; i < 3; i++)
             {
-                Console.Write($"\nINGRESE LA ID DEL ESTUDIANTE {i+1}: ");
-                id = int.Parse( Console.ReadLine() );
-                Console.Write($"INGRESE EL NOMBRE DEL ESTUDIANTE {i + 1}: ");
+                Console.Write($"\nINGRESE EL CODIGO DEL PRODUCTO {i + 1}: ");
+                codigo = int.Parse(Console.ReadLine());
+                Console.Write($"INGRESE EL NOMBRE DEL PRODUCTO {i + 1}: ");
                 nombre = Console.ReadLine();
-                estudiantes.Add(id, nombre);
+                productos.Add(codigo, nombre);
             }
             Console.Clear();
-            Console.WriteLine("\n++++++++++++++ BUSCAR  ESTUDIANTES +++++++++++");
-            Console.Write("INGRESE LA ID DEL ESTUDIANTE: ");
-            id = int.Parse( Console.ReadLine() );
-
-            Console.WriteLine("\n***********DATOS DE ESTUDIANTES*********");
-            foreach (var item in estudiantes)
+            Console.WriteLine("\n++++++++++++++ PRODUCTOS INGRESADOS +++++++++++");
+            Console.WriteLine("");
+            foreach (var item in productos)
             {
-                if(item.Key == id)
-                {
-                    Console.WriteLine("ID: "+ item.Key + ", NOMBRE: " + item.Value);
-                } 
-                else
-                {
-                    Console.WriteLine("\nNO EXISTE LA ID.");
-                }
+                Console.WriteLine("CODIGO: " + item.Key + ", NOMBRE: " + item.Value);
             }
         }
     }
