@@ -10,28 +10,39 @@ namespace id_de_estudiantes
     {
         static void Main(string[] args)
         {
-            Dictionary<int, string> estudiantes = new Dictionary<int, string>();
+            Dictionary<int, string> productos = new Dictionary<int, string>();
             int id;
             string nombre;
-            Console.WriteLine("++++++++++++++ INGRESAR DATOS DE 3 ESTUDIANTES +++++++++++");
-            for (int i = 0; i < 3; i++)
+            Console.Write("CUANTOS PRODUCTOS DESEA INGRESAR: ");
+            int num = int.Parse(Console.ReadLine());
+            Console.WriteLine("\n++++++++++++++ INGRESAR DATOS DE LOS PRODUCTOS +++++++++++");
+
+            for (int i = 0; i < num; i++)
             {
-                Console.Write($"\nINGRESE LA ID DEL ESTUDIANTE {i + 1}: ");
-                id = int.Parse(Console.ReadLine());
-                Console.Write($"INGRESE EL NOMBRE DEL ESTUDIANTE {i + 1}: ");
+                int salir = 0;
+                do
+                {
+                    Console.Clear();
+                    Console.Write($"\nINGRESE LA ID DEL PRODUCTO {i + 1}: ");
+                    id = int.Parse(Console.ReadLine());
+                    if(productos.ContainsKey(id))
+                    {
+                        Console.WriteLine("\nLA ID DEL PRODUCTO YA EXISTE.");
+                        Console.ReadKey();
+                       
+                    }
+                    else
+                    {
+                        salir = 3;
+                    }
+                } while (salir != 3);
+                Console.Write($"INGRESE EL NOMBRE DEL PRODUCTO {i + 1}: ");
                 nombre = Console.ReadLine();
-                estudiantes.Add(id, nombre);
+
+                productos.Add(id, nombre);
             }
             Console.Clear();
-            Console.WriteLine("\n++++++++++++++ BUSCAR  ESTUDIANTES A ELIMINAR +++++++++++");
-            Console.Write("INGRESE LA ID DEL ESTUDIANTE: ");
-            id = int.Parse(Console.ReadLine());
-
-            if (estudiantes.ContainsKey(id))
-            {
-                estudiantes.Remove(id);
-                Console.WriteLine("\nESTUDIANTE ELIMINADO CORRECTAMENTE.");
-            }
+            Console.WriteLine("\nPRODUCTOS AGREGADOS CORRECTAMENTE.");
         }
     }
 }
