@@ -10,35 +10,29 @@ namespace id_de_estudiantes
     {
         static void Main(string[] args)
         {
-            Dictionary<string, double> estudiantes = new Dictionary<string, double>();
-            double notas;
+            Dictionary<int, string> ciudades = new Dictionary<int, string>();
+            int codigo ;
             string nombre;
-            Console.WriteLine("++++++++++++++ INGRESAR DATOS DE ESTUDIANTES +++++++++++");
-            Console.Write("\nCUANTOS ESTUDIANTES DESEA INGRESAR: ");
-            int num = int.Parse(Console.ReadLine());
-
-            for (int i = 0; i < num; i++)
+            Console.WriteLine("++++++++++++++ INGRESAR 5 CIUDADES +++++++++++");
+            for (int i = 0; i < 5; i++)
             {
-                Console.Write($"\nINGRESE LA NOMBRE DEL ESTUDIANTE {i + 1}: ");
+                Console.Write($"\nINGRESE EL CODIGO DE LA CIUDAD {i + 1}: ");
+                codigo = int.Parse(Console.ReadLine());
+                Console.Write($"INGRESE EL NOMBRE DE LA CIUDAD {i + 1}: ");
                 nombre = Console.ReadLine();
-                Console.Write($"INGRESE LA NOTA DEL ESTUDIANTE {i + 1}: ");
-                notas = double.Parse(Console.ReadLine());
-
-                estudiantes.Add(nombre, notas);
+                ciudades.Add(codigo, nombre);
             }
             Console.Clear();
-            Console.WriteLine("\n++++++++++++++ BUSCAR  ESTUDIANTES +++++++++++");
-            Console.Write("INGRESE EL NOMBRE DEL ESTUDIANTE: ");
-            nombre = Console.ReadLine();
-
-            Console.WriteLine("\n***********DATOS DE ESTUDIANTES*********");
-            foreach (var item in estudiantes)
+            Console.WriteLine("\n++++++++++++++ BUSCAR CIUDAD +++++++++++");
+            Console.Write("INGRESE EL CODIGO DE LA CIUDAD: ");
+            codigo = int.Parse(Console.ReadLine()) ;
+            foreach (var item in ciudades)
             {
-                if (item.Key == nombre)
+                if (item.Key == codigo)
                 {
-                    Console.WriteLine("ID: " + item.Key + ", NOTA: " + item.Value);
+                    Console.WriteLine("CODIGO: " + item.Key + ", NOMBRE: " + item.Value);
                 }
-
+                
             }
         }
     }
