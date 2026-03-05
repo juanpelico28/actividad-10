@@ -33,6 +33,10 @@ namespace id_de_estudiantes
                 if(item.Key == id)
                 {
                     Console.WriteLine("ID: "+ item.Key + ", NOMBRE: " + item.Value);
+                } 
+                else
+                {
+                    Console.WriteLine("\nNO EXISTE LA ID.");
                 }
             }
         }
