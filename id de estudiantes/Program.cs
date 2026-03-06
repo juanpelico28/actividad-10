@@ -10,66 +10,28 @@ namespace id_de_estudiantes
     {
         static void Main(string[] args)
         {
-            Dictionary<int, string> empleados = new Dictionary<int, string>();
-            int id;
+            Dictionary<string, double> estudiantes = new Dictionary<string, double>();
+            double id;
             string nombre;
-            Console.Write("CUANTOS EMPLEADOS DESEA INGRESAR: ");
-            int num = int.Parse(Console.ReadLine());
-            Console.WriteLine("\n++++++++++++++ INGRESAR DATOS DE LOS EMPLADOS +++++++++++");
-
-            for (int i = 0; i < num; i++)
-            {
-                int salir = 0;
-                do
-                {
-                    Console.Clear();
-                    Console.Write($"\nINGRESE LA ID DEL EMPLEADO {i + 1}: ");
-                    id = int.Parse(Console.ReadLine());
-                    if (empleados.ContainsKey(id))
-                    {
-                        Console.WriteLine("\nLA ID DEL EMPLEADO YA EXISTE.");
-                        Console.ReadKey();
-                       
-                    }
-                    else
-                    {
-                        salir = 3;
-                    }
-                } while (salir != 3);
-
-                Console.Write($"INGRESE EL NOMBRE DEL EMPLEADO {i + 1}: ");
-                nombre = Console.ReadLine();
-
-                empleados.Add(id, nombre);
-            }
-            Console.Clear();
+            
+            Console.WriteLine("\n++++++++++++++  DATOS ESTUDIANTES +++++++++++");
+            estudiantes.Add("juan", 87);
+            estudiantes.Add("pedro",90 );
+            estudiantes.Add("jose", 87);
+            estudiantes.Add("roberto", 75);
+            estudiantes.Add("mario", 66);
+            estudiantes.Add("carlos", 78);
             Console.WriteLine("\nEMPLEADOS AGREGADOS CORRECTAMENTE.");
-            foreach (var item in empleados)
+            Console.Write("\nINGRESE ELL NOMBRE DEL ESTUDIANTE: ");
+            nombre = Console.ReadLine();
+            foreach (var item in estudiantes)
             {
-                Console.WriteLine("ID: " + item.Key + "/ NOMBRE: " + item.Value);
-            }
-            Console.ReadKey();
-            Console.Clear();
-            Console.WriteLine("------------- MODIFICAR NOMBRE DE USUARIO --------------");
+                if (estudiantes.ContainsKey(nombre))
+                {
+                    Console.WriteLine("EL NOMBRE SI EXISTE. ");
+                    Console.WriteLine("NOMBRE: " + item.Key + "/ NOTA: " + item.Value);
 
-            Console.Write("\nINGRESE LA ID DEL USUARIO: ");
-            id = int.Parse(Console.ReadLine());
-
-            if (empleados.ContainsKey(id))
-            {
-                Console.Write("INGRESE EL NOMBRE DEL EMPLEADO: ");
-                nombre = Console.ReadLine();
-                empleados[id] = nombre;
-
-            }
-            else
-            {
-                Console.WriteLine("\nID INVALIDA NO EXISTE.");
-                Console.ReadKey();
-            }
-            foreach(var item in empleados)
-            {
-                Console.WriteLine("ID: " + item.Key + "/ NOMBRE: " + item.Value);
+                }
             }
             Console.ReadKey();
         }
