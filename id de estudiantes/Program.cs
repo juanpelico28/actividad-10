@@ -10,12 +10,12 @@ namespace id_de_estudiantes
     {
         static void Main(string[] args)
         {
-            Dictionary<int, string> productos = new Dictionary<int, string>();
+            Dictionary<int, string> empleados = new Dictionary<int, string>();
             int id;
             string nombre;
-            Console.Write("CUANTOS PRODUCTOS DESEA INGRESAR: ");
+            Console.Write("CUANTOS EMPLEADOS DESEA INGRESAR: ");
             int num = int.Parse(Console.ReadLine());
-            Console.WriteLine("\n++++++++++++++ INGRESAR DATOS DE LOS PRODUCTOS +++++++++++");
+            Console.WriteLine("\n++++++++++++++ INGRESAR DATOS DE LOS EMPLADOS +++++++++++");
 
             for (int i = 0; i < num; i++)
             {
@@ -23,11 +23,11 @@ namespace id_de_estudiantes
                 do
                 {
                     Console.Clear();
-                    Console.Write($"\nINGRESE LA ID DEL PRODUCTO {i + 1}: ");
+                    Console.Write($"\nINGRESE LA ID DEL EMPLEADO {i + 1}: ");
                     id = int.Parse(Console.ReadLine());
-                    if(productos.ContainsKey(id))
+                    if (empleados.ContainsKey(id))
                     {
-                        Console.WriteLine("\nLA ID DEL PRODUCTO YA EXISTE.");
+                        Console.WriteLine("\nLA ID DEL EMPLEADO YA EXISTE.");
                         Console.ReadKey();
                        
                     }
@@ -36,10 +36,12 @@ namespace id_de_estudiantes
                         salir = 3;
                     }
                 } while (salir != 3);
-                Console.Write($"INGRESE EL NOMBRE DEL PRODUCTO {i + 1}: ");
+
+                Console.WriteLine("------------- MODIFICAR ");
+                Console.Write($"INGRESE LA ID DEL EMPLEADO {i + 1}: ");
                 nombre = Console.ReadLine();
 
-                productos.Add(id, nombre);
+                empleados.Add(id, nombre);
             }
             Console.Clear();
             Console.WriteLine("\nPRODUCTOS AGREGADOS CORRECTAMENTE.");
