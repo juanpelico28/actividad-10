@@ -37,14 +37,41 @@ namespace id_de_estudiantes
                     }
                 } while (salir != 3);
 
-                Console.WriteLine("------------- MODIFICAR ");
-                Console.Write($"INGRESE LA ID DEL EMPLEADO {i + 1}: ");
+                Console.Write($"INGRESE EL NOMBRE DEL EMPLEADO {i + 1}: ");
                 nombre = Console.ReadLine();
 
                 empleados.Add(id, nombre);
             }
             Console.Clear();
-            Console.WriteLine("\nPRODUCTOS AGREGADOS CORRECTAMENTE.");
+            Console.WriteLine("\nEMPLEADOS AGREGADOS CORRECTAMENTE.");
+            foreach (var item in empleados)
+            {
+                Console.WriteLine("ID: " + item.Key + "/ NOMBRE: " + item.Value);
+            }
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("------------- MODIFICAR NOMBRE DE USUARIO --------------");
+
+            Console.Write("\nINGRESE LA ID DEL USUARIO: ");
+            id = int.Parse(Console.ReadLine());
+
+            if (empleados.ContainsKey(id))
+            {
+                Console.Write("INGRESE EL NOMBRE DEL EMPLEADO: ");
+                nombre = Console.ReadLine();
+                empleados[id] = nombre;
+
+            }
+            else
+            {
+                Console.WriteLine("\nID INVALIDA NO EXISTE.");
+                Console.ReadKey();
+            }
+            foreach(var item in empleados)
+            {
+                Console.WriteLine("ID: " + item.Key + "/ NOMBRE: " + item.Value);
+            }
+            Console.ReadKey();
         }
     }
 }
