@@ -10,36 +10,38 @@ namespace id_de_estudiantes
     {
         static void Main(string[] args)
         {
-            Dictionary<int, (string nombre, double precio)> productos = new Dictionary<int, (string, double)>();
-            int  id;
+            Dictionary<int, (string nombre, int ubicacion)> inventario = new Dictionary<int, (string, int)>();
+            int  codigo;
 
             Console.WriteLine("\n++++++++++++++  DATOS DE LOS PRODUCTOS +++++++++++");
-            productos.Add(12, (" YOGUR LT. ", 15));
-            productos.Add(15, ("FRIJOLES LB. ", 18));
-            productos.Add(17, ("LECHE NESTLE. ", 20));
-            productos.Add(11, ("GELATINA. ",12));
-            productos.Add(18, ("AZUCAR LB. ", 10));
-            productos.Add(19, ("PAPEL PAQUETE. ", 12));
-            productos.Add(20, ("SOPA INSTANTANEA. ", 5 ));
-            foreach (var item in productos)
+            inventario.Add(1214, ("DESTORNILLADORES DE CRUZ .  ", 1));
+            inventario.Add(1545, ("LLAVES CORONA MILIMETRICAS. ", 2));
+            inventario.Add(1723, ("MULTIMETRO FLUKE.           ", 3));
+            inventario.Add(1156, ("AMPERIMETRO FLUKE.          ", 4));
+            inventario.Add(1826, ("LLAVES ALEN MILIMETRICAS.   ", 5));
+            inventario.Add(1976, ("LINTERNA MILWOKKE.          ", 6));
+            inventario.Add(2001, ("COPAS MILIMETRICAS.         ", 7 ));
+            foreach (var item in inventario)
             {
-                Console.WriteLine("ID: " + item.Key + " NOMBRE: " + item.Value.nombre + " PRECIO: Q" + item.Value.precio);
+                Console.WriteLine("CODIGO: " + item.Key + " NOMBRE: " + item.Value.nombre + " GABETA No: " + item.Value.ubicacion);
             }
 
-            Console.WriteLine("\n*****ELIMINAR PRODUCTO DE LA LISTA. ***********");
-            Console.Write("\nINGRESE LA ID DEL PRODUCTO: ");
-            id = int.Parse(Console.ReadLine());
+            Console.WriteLine("\n*****ELIMINAR HERRAMIENTA DE LA LISTA. ***********");
+            Console.Write("\nINGRESE EL CODIGO DE LA HERRAMINETA: ");
+            codigo = int.Parse(Console.ReadLine());
             
-            if (productos.ContainsKey(id))
+            if (inventario.ContainsKey(codigo))
             {
-                    productos.Remove(id);  
-                    Console.WriteLine("SE A ELIMINADO EL PRODUCTO. ");
+                    inventario.Remove(codigo);  
+                    Console.WriteLine("SE A ELIMINADO LA HERRAMIENTA. ");
             }
             Console.ReadKey();
             Console.WriteLine();
-            foreach(var item in productos)
+            Console.WriteLine("\n********** LISTA ACTUALIZADA ***************");
+            Console.WriteLine();
+            foreach (var item in inventario)
             {
-                Console.WriteLine("ID: "+ item.Key+ " NOMBRE: "+item.Value.nombre+ " PRECIO: Q"+ item.Value.precio);
+                Console.WriteLine("CODIGO: "+ item.Key+ " NOMBRE: "+item.Value.nombre+ " GABETA No: "+ item.Value.ubicacion);
             }
             
         }
