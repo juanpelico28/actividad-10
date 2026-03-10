@@ -10,35 +10,30 @@ namespace id_de_estudiantes
     {
         static void Main(string[] args)
         {
-            Dictionary< int,string > estudiantes = new Dictionary<int,string>();
-            int id;
+            Dictionary<string, double> estudiantes = new Dictionary<string, double>();
+            double id;
             string nombre;
-            Console.WriteLine("++++++++++++++ INGRESAR DATOS DE 3 ESTUDIANTES +++++++++++");
-            for (int i = 0; i < 3; i++)
-            {
-                Console.Write($"\nINGRESE LA ID DEL ESTUDIANTE {i+1}: ");
-                id = int.Parse( Console.ReadLine() );
-                Console.Write($"INGRESE EL NOMBRE DEL ESTUDIANTE {i + 1}: ");
-                nombre = Console.ReadLine();
-                estudiantes.Add(id, nombre);
-            }
-            Console.Clear();
-            Console.WriteLine("\n++++++++++++++ BUSCAR  ESTUDIANTES +++++++++++");
-            Console.Write("INGRESE LA ID DEL ESTUDIANTE: ");
-            id = int.Parse( Console.ReadLine() );
-
-            Console.WriteLine("\n***********DATOS DE ESTUDIANTES*********");
+            
+            Console.WriteLine("\n++++++++++++++  DATOS ESTUDIANTES +++++++++++");
+            estudiantes.Add("juan", 87);
+            estudiantes.Add("pedro",90 );
+            estudiantes.Add("jose", 87);
+            estudiantes.Add("roberto", 75);
+            estudiantes.Add("mario", 66);
+            estudiantes.Add("carlos", 78);
+            Console.WriteLine("\nEMPLEADOS AGREGADOS CORRECTAMENTE.");
+            Console.Write("\nINGRESE ELL NOMBRE DEL ESTUDIANTE: ");
+            nombre = Console.ReadLine();
             foreach (var item in estudiantes)
             {
-                if(item.Key == id)
+                if (estudiantes.ContainsKey(nombre))
                 {
-                    Console.WriteLine("ID: "+ item.Key + ", NOMBRE: " + item.Value);
-                } 
-                else
-                {
-                    Console.WriteLine("\nNO EXISTE LA ID.");
+                    Console.WriteLine("EL NOMBRE SI EXISTE. ");
+                    Console.WriteLine("NOMBRE: " + item.Key + "/ NOTA: " + item.Value);
+
                 }
             }
+            Console.ReadKey();
         }
     }
 }
